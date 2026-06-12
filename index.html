@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Mi Miaaa ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    background:#000;
+    height:100vh;
+}
+
+.background{
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("foto.jpg");
+    background-size:cover;
+    background-position:center;
+    animation:zoomBg 18s ease-in-out infinite alternate;
+}
+
+@keyframes zoomBg{
+    from{transform:scale(1);}
+    to{transform:scale(1.12);}
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at center,
+    rgba(255,182,193,.15),
+    rgba(0,0,0,.65));
+}
+
+.container{
+    position:relative;
+    z-index:10;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
+}
+
+.card{
+    max-width:850px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:30px;
+    padding:35px;
+    box-shadow:0 0 40px rgba(255,105,180,.25);
+    animation:fadeUp 2s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    font-family:'Great Vibes',cursive;
+    color:#ffb6c1;
+    font-size:4rem;
+    margin-bottom:15px;
+    animation:glow 3s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #ff7aa2;
+    }
+    to{
+        text-shadow:0 0 25px #ffc0cb;
+    }
+}
+
+.subtitle{
+    color:white;
+    font-size:1.1rem;
+    margin-bottom:25px;
+}
+
+.message{
+    color:white;
+    line-height:1.9;
+    font-size:1.15rem;
+    animation:textFade 4s ease;
+}
+
+@keyframes textFade{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+.signature{
+    margin-top:25px;
+    color:#ffb6c1;
+    font-size:1.5rem;
+    font-weight:600;
+}
+
+.music-btn{
+    margin-top:25px;
+    background:#ff7aa2;
+    border:none;
+    color:white;
+    padding:12px 24px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:1rem;
+    transition:.3s;
+}
+
+.music-btn:hover{
+    transform:scale(1.05);
+}
+
+.heart{
+    position:absolute;
+    color:#ff8fb1;
+    font-size:22px;
+    animation:float linear infinite;
+    opacity:.7;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-120px);
+    }
+}
+
+@media(max-width:768px){
+
+h1{
+    font-size:3rem;
+}
+
+.message{
+    font-size:1rem;
+}
+
+.card{
+    padding:25px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="overlay"></div>
+
+<div id="hearts"></div>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Para Mi Miaaa ❤️</h1>
+
+<div class="subtitle">
+Cada día encuentro una razón más para amarte.
+</div>
+
+<div class="message">
+
+Eres un tesoro invaluable, una mujer maravillosa,
+perfecta para mí.<br><br>
+
+Siempre te voy a amar,
+cada día aprenderé a amarte más.<br><br>
+
+Amo amarte.<br><br>
+
+Te amo con todo mi ser,
+eres todo para mí.<br><br>
+
+Mi ponquesito esponjosito de chocolate.<br><br>
+
+Mi caramelito delicioso.<br><br>
+
+❤️ Miaaa ❤️
+
+</div>
+
+<div class="signature">
+Con todo mi amor 💖
+</div>
+
+<button class="music-btn" onclick="toggleMusic()">
+🎵 Escuchar Nuestra Canción
+</button>
+
+</div>
+
+</div>
+
+<audio id="music" loop>
+<source src="mi-persona-favorita.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const music = document.getElementById("music");
+
+function toggleMusic(){
+
+if(music.paused){
+music.play();
+}else{
+music.pause();
+}
+
+}
+
+function createHeart(){
+
+const heart = document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML = "❤️";
+
+heart.style.left = Math.random()*100+"vw";
+
+heart.style.animationDuration =
+(6 + Math.random()*8)+"s";
+
+heart.style.fontSize =
+(15 + Math.random()*25)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},14000);
+
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>
